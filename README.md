@@ -86,7 +86,7 @@
 
 ## Extra Sources
 
-Fonts:
+  ### Fonts
 
-Apple Symbols (Standard Apple Font)
-Beauty (https://www.dafont.com/beauty-2.font)
+  Apple Symbols (Standard Apple Font)
+  Beauty (https://www.dafont.com/beauty-2.font)
