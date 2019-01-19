@@ -3,7 +3,7 @@
 
 ## Assignment 1 - THE HISTORY OF US
 
-  The Most Influential People In History (According To Wikipedia)
+  ### The Most Influential People In History (According To Wikipedia)
   EXPLORATORY – INTERACTIVE – D3
   
   A web application that shows a world map with a slider underneath. Each point on the slide corresponds
@@ -17,7 +17,7 @@
   
 ## Assignment 2 - THE WORLD IN WHICH WE LIVE
 
-  Average annual precipitation of the different continents
+  ### Average annual precipitation of the different continents
   EXPLORATORY – PHYSICAL – INTERACTIVE – 3D
   
   A physical installation showing the average precipitation per continent in 2011.
@@ -36,7 +36,7 @@
   
 ## Assignment 3 - THE AIR WE BREATHE
 
-  Oxygen levels in the air
+  ### Oxygen levels in the air
   EXPLANATORY – LINEAR – NODE-BASED
   
   A video that shows how the amount of oxygen goes down the higher you go up.
@@ -44,7 +44,7 @@
 
 ## Assignment 4 - THE INTERESTS WE SHARE
 
-  ‘Friends jam’: What music do your friends listen to?
+  ### ‘Friends jam’: What music do your friends listen to?
   EXPLANATORY & EXPLORATORY – INTERACTIVE
   
   A web application that is connected to your Spotify account and shows your friend’s taste in music. On
@@ -57,7 +57,7 @@
   
 ## Assignment 5 - THE DEATH OF US
 
-  Decreasing Arctic Sea Ice Volume
+  ### Decreasing Arctic Sea Ice Volume
   EXPLANATORY – STATIC
   
   A poster showing in 2 ways the decreasing arctic sea ice volume.
