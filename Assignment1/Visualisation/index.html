@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>1000 Most influential people in history</title>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans|Poppins|Quicksand" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="style.css" >
+		<script src="jquery.min.js"></script>
+		<script type="text/javascript" src="d3.v4.js"></script>
+		<!-- https://github.com/markmarkoh/datamaps/blob/master/README.md#getting-started-->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+		<script src="datamaps.world.min.js"></script>
+
+		<script type="text/javascript" src="javascript.js"></script>
+	</head>
+
+	<body>
+
+		<header>
+			<h1>1000 Most influential people in history</h1>
+			<p>(According to Wikipedia)</p>
+		</header>
+
+		<div id="people-list">Try hovering on a bubble!</div>
+
+		<div id="container"></div>
+
+		<div id="century">
+			<p class="century_label"></p>
+		</div>
+
+		<div class="slidecontainer">
+			<input id="century_slider" type="range" min="1" max="100" value="50" class="slider">
+		</div>
+  </body>
+
+</html>

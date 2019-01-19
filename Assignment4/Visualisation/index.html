@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+
+    <script src="jquery-3.2.0.min.js"></script>
+    <script src="js/genres.js"></script>
+    <script src="js/names.js"></script>
+    <script src="js/spotify.js"></script>
+    <script src="js/main.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+</head>
+<body>
+    <div id="header">
+        <img src="images/title.svg">
+    </div>
+    <div id="main-container">
+        <div id="friend-list"></div>
+        <div id="legend-container">
+            <ul id="legend">
+            </ul>
+        </div>
+        <div id="playing-overview-container">
+            <div id="playing-overview">
+                <div id="playing-song-image">
+                    <img src="">
+                </div>
+                <div id="playing-song-info">
+                    <p>
+                        <span id="playing-song-name">test</span>
+                        <span> - </span>
+                        <span id="playing-song-artist">testartist</span>
+                    </p>
+                    <p id="friend-info">
+                        Favorite song of <span id="friend-info-name"></span>
+                    </p>
+                </div>
+            </div>
+            <div id="playing-overview-progressbar"></div>
+        </div>
+    </div>
+
+</body>
+</html>

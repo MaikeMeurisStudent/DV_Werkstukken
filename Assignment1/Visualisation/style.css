@@ -1,0 +1,114 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #E5F8FF;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+header{
+    position: absolute;
+    top: 0;
+    margin: 0 0 0 250px;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px #BBB;
+    width: calc(100vw - 250px);
+}
+
+header p{
+    position: relative;
+    top: -20px;
+    width: calc(100vw - 250px);
+}
+
+#container{
+    width: calc(100vw - 250px);
+    height: 100vh;
+    margin: 0 0 0 250px;
+}
+
+#people-list {
+    background-color: #2D2D2D;
+    color: white;
+    width: 210px;
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: calc(100vh - 40px);
+    overflow-y: scroll
+}
+
+#people-list span{
+    display: block;
+    font-size: .8rem;
+    padding: 5px 0;
+    border-bottom: 1px solid #3E3E3E;
+}
+
+#people-list span:last-of-type{
+    border: none;
+}
+
+.slidecontainer {
+    margin-left: 300px;
+}
+
+.slider {
+    box-shadow: 3px 3px 5px #BBB;
+    -webkit-appearance: none;
+    width: calc(100vw - 350px);
+    height: 25px;
+    background: #333;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 2.5vh;
+    border-radius: 12.5px;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #FFF;
+    cursor: pointer;
+    border: 3px solid #333;
+    border-radius: 12.5px;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #FFF;
+    cursor: pointer;
+}
+
+#century{
+    font-size: 1.5rem;
+    font-family: 'Quicksand';
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px #BBB;
+    color: #333;
+    margin: 2vh 0 2vh 250px;
+    text-align: center;
+    display: block;
+    width: calc(100vw - 250px);
+    position: absolute;
+    bottom: 3vh;
+    pointer-events: none;
+}
+
+#century p{
+    display: inline-block;
+}
