@@ -73,3 +73,13 @@
   
 ## Portfolio - THE OFFICIAL DOCUMENT
 
+## Infographic - HOW THIS CURIOUS THING CAME ABOUT
+
+  ### Icon Sources
+  
+  https://commons.wikimedia.org/wiki/File:Noun_Project_lightbulb_icon_1263005_cc.svg
+  https://www.iconfinder.com/icons/1964408/logo_media_reddit_social_icon
+  https://thenounproject.com/term/brain/817/
+  https://thenounproject.com/term/bubble-chart/115582/
+  https://thenounproject.com/term/belgium/158735/
+  https://thenounproject.com/term/teacher/
