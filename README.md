@@ -83,3 +83,10 @@
   https://thenounproject.com/term/bubble-chart/115582/
   https://thenounproject.com/term/belgium/158735/
   https://thenounproject.com/term/teacher/
+
+## Extra Sources
+
+Fonts:
+
+Apple Symbols (Standard Apple Font)
+Beauty (https://www.dafont.com/beauty-2.font)
