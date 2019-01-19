@@ -1,3 +1,5 @@
+// uri = ID of playlist that is given with the HTTP-request for playing a song, so spotify knows which playlist to use
+
 const genres = [
     {
         name: 'Rock',

@@ -4,8 +4,12 @@ const genreCounter = {};
 $(document).ready(function() {
 
     window.onSpotifyWebPlaybackSDKReady = () => {
+        // Initialize the player object
         spotify.start();
+
         const promiseList = [];
+
+        // Get all songs from each playlist/genre and put them with corresponding playlist/genre in genres array
         genres.forEach((genre) => {
             const genrePromise = spotify.loadPlaylistTracks(genre.uri);
             promiseList.push(genrePromise);
@@ -13,9 +17,11 @@ $(document).ready(function() {
                 genre.songs = data.items;
             })
         });
+
+        // When all songs from all playlists are in the genres array, the webpage can be shown
         Promise.all(promiseList).then(() => {
             spotify.playlistsLoaded = true;
-            // promise.all() wacht niet op de genrePromise.then(), en voert dus de createFriendlist uit voordat de data juist verwerkt is => even wachten (250ms) tot alle .then() uitgevoerd zijn.
+            // promise.all() doesn't wait for genrePromise.then() in the code above, and so it executes createFriendList before the data is processed correctly => wait for 250ms until all .then()'s are finished
             setTimeout(() => {
                 createPage();
             }, 250)
@@ -31,10 +37,39 @@ createPage = () => {
     createLegend();
 }
 
+// Create friends array
+createFriendList = () => {
+    for (let i = 0; i < names.length; i++){
+
+        // Get a random genre from the genres array
+        const genreIndex = Math.floor(Math.random() * genres.length);
+        let genre = genres[genreIndex];
+
+        // Create friend with a name, a random favourite genre and a random favourite song index
+        let friendObject = {
+            name: names[i],
+            favourite_genre: genre,
+            favourite_song: Math.floor(Math.random() * genre.songs.length)
+        };
+
+        // Add this friend to the friends array
+        friends.push(friendObject);
+
+        // Count the number of times a genre has been randomly chosen, so this data can be used to create the right section of the page with the chart
+        if (!genre.hasOwnProperty('count')) {
+            genre.count = 0;
+        }
+        genre.count++;
+        genres[genreId] = genre;
+    }
+}
+
+// Create section of page with music notes that correspond to a certain friend
 createHTMLFriendList = () => {
     let listHTML = "";
 
     for(let i = 0; i < friends.length; i++){
+        // Get the favourite song of this friend using the favourite song index
         const favoriteTrack = genres[genres.indexOf(friends[i].favourite_genre)].songs[friends[i].favourite_song].track;
 
         listHTML += "<div class='friend' id='" + i + "'><img src='" + friends[i].favourite_genre.image + "'/>";
@@ -49,47 +84,31 @@ createHTMLFriendList = () => {
     $("#friend-list").html(listHTML);
 }
 
-createFriendList = () => {
-    for (let i = 0; i < names.length; i++){
-        const genreId = Math.floor(Math.random() * genres.length);
-        let genre = genres[genreId];
-        let friendObject = {
-            name: names[i],
-            favourite_genre: genre,
-            favourite_song: Math.floor(Math.random() * genre.songs.length)
-        };
-
-        friends.push(friendObject);
-
-        if (!genre.hasOwnProperty('count')) {
-            genre.count = 0;
-        }
-        genre.count++;
-        genres[genreId] = genre;
-    }
-}
-
+// If a music note gets clicked upon; play favourite song of this person
 addClickEventListener = () => {
     $("#friend-list .friend").click(function(e) {
         const id = e.target.id;
-        if (friends[id] !== undefined){ // anders kwamen er soms rare errors, nu ben je zeker dat er op de IMG zelf werd geklikt
+        if (friends[id] !== undefined){ // If this isn't done, sometimes weird errors appeared. Now we're certain the user clicked on the IMG itself
             if (spotify.canplay && spotify.playlistsLoaded) {
                 playSong(id);
             } else{
-                console.warn("Player is nog niet klaar om iets af te spelen");
+                console.warn("Player isn't ready yet to play a song");
             }
         }
     });
 }
 
+// Create right section of the webpage with the chart
 createLegend = () => {
     let legendHTML = "";
 
-    genres.sort((a, b) => {return b.count-a.count}).forEach((genre) => { // sort array by count, then loop over the sorted array
+    // Sort the genre count data, then loop over the sorted array; create a bar with a height that corresponds to the count
+    genres.sort((a, b) => {return b.count-a.count}).forEach((genre) => {
         const itemHeight = genre.hasOwnProperty('count')? genre.count * 2 : 0;
         const listItemStyle = "background: " + genre.color + "; flex: " + itemHeight + ";";
         if (itemHeight > 0) {
             let classList = 'legend-item';
+            // If the count is too low, don't show a label (only on hover)
             if (genre.count < 5) classList += " hidden-label";
             legendHTML += "<li class='" + classList + "' style='" + listItemStyle + "'><span class='label'>" + genre.name + " - " + Math.round(genre.count/names.length * 100) + "%</span></li>";
         }
@@ -98,6 +117,7 @@ createLegend = () => {
     $("#legend").html(legendHTML);
 }
 
+// Show which song is playing on the bottom of the webpage
 updatePlayOverview = (track, friend) => {
     $('#playing-song-image img').attr('src' ,track.album.images[0].url);
     $('#playing-song-name').text(track.name);
@@ -106,6 +126,7 @@ updatePlayOverview = (track, friend) => {
     $('#playing-overview-container').addClass('song-playing');
 };
 
+// Play the favourite song of a certain friend
 playSong = (id) => {
     const trackToPlay = genres[genres.indexOf(friends[id].favourite_genre)].songs[friends[id].favourite_song].track;
     spotify.play({
@@ -113,9 +134,11 @@ playSong = (id) => {
         spotify_uri: friends[id].favourite_genre.uri,
         playlist_nr: friends[id].favourite_song
     });
+    // Update the section on the bottom of the page with the song that is playing
     updatePlayOverview(trackToPlay, friends[id]);
 }
 
+// Put together the artist name in the right way
 getArtistString = (track) => {
     let artistsString = '';
     track.artists.forEach((artist, index) => {

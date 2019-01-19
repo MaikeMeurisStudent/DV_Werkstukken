@@ -1,4 +1,4 @@
-/* CSS animaties hulp door EhB-alumnus Lieven Luyckx */
+/* CSS Animation partly thanks to EHB-alumnus Lieven Luyckx. Thanks for the help with this bit I can never quite grasp ... */
 
 body{
     background-color: #2D2D2D;
@@ -63,11 +63,10 @@ p {
     width: 30px;
     object-fit: contain;
     transition: .3s all ease-in-out;
-    pointer-events: none; /* de image kan anders de click op het 'friend' element blokkeren, waardoor er geen muziek speelt */
+    pointer-events: none; /* If this is not done, the image can block the click on the friend element, and the music doesn't play */
 }
 
 .friend:hover {
-    /*transform: scale(1.2);*/
     z-index: 100;
 }
 
@@ -94,7 +93,7 @@ p {
     -webkit-box-shadow: 4px 4px 12px -2px rgba(0,0,0,.5);
     -moz-box-shadow: 4px 4px 12px -2px rgba(0,0,0,.5);
     box-shadow: 4px 4px 12px -2px rgba(0,0,0,.5);
-    pointer-events: none; /* de image kan anders de click op het 'friend' element blokkeren, waardoor er geen muziek speelt */
+    pointer-events: none; /* If this is not done, the image can block the click on the friend element, and the music doesn't play */
 }
 
 .friend:hover .info-field{

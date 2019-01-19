@@ -1,4 +1,4 @@
-// http://listofrandomnames.com/index.cfm?textarea
+// Generator Source: http://listofrandomnames.com/index.cfm?textarea
 const names = [
     'Chance Reves',
     'Camilla Coman',
